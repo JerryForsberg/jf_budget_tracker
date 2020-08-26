@@ -18,8 +18,8 @@ request.onsuccess = function (event) {
 };
 
 request.onerror = function (event) {
-    console.log("Woops! " + event.target.errorCode);
-};
+    console.log("There was an error with this request" + event.target.errorCode);
+}
 
 function saveRecord(record) {
     // create a transaction on the pending db with readwrite access
