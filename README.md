@@ -6,6 +6,8 @@ The signifigance of making this a progressive web app, is that the user does not
 
 Please view the deployed version of the app here: https://jf-budget-tracker.herokuapp.com/
 
+![Screenshot of deployed app](url)
+
 Technologies: 
   - IndexDB : keeps a pending record of transactions that will be able to be sent to the database once the app is able to come back online. 
   - Cache storage: Caches the static files needed to for the app to run. Gets any available data requested from the API.
