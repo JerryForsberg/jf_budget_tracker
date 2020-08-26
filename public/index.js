@@ -42,12 +42,31 @@ function useIndexedDb(databaseName, storeName, method, object) {
         };
       } else if (method === "delete") {
         store.delete(object._id);
+      } else if (method === "add") {
+        console.log(store, object);
+        const objRequest = store.add(object);
+        objRequest.onsuccess = function (event) {
+          console.log("success", event);
+        }
+        objRequest.onerror = function (event) {
+          console.log("error", event);
+        }
       }
       tx.oncomplete = function () {
         db.close();
       };
     };
   });
+}
+
+function saveRecord(transaction) {
+  if (checkForIndexedDb()) {
+    useIndexedDb("budget", "pending", "add", transaction).then(
+      () => {
+        console.log("added to DB");
+      }
+    );
+  }
 }
 
 fetch("/api/transaction")
